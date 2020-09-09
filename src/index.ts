@@ -9,3 +9,5 @@ export default function rasmifize(arabicString: string): string {
 
   return rasm.trim();
 }
+
+module.exports = rasmifize;
