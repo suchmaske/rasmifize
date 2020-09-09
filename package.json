@@ -13,6 +13,10 @@
     "build": "tsc",
     "build:check": "tsc --noEmit"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suchmaske/rasmifize.git"
+  },
   "keywords": [
     "arabic",
     "rasm",
