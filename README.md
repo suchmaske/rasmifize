@@ -25,10 +25,22 @@ npm install rasmifize
 
 ## How to use
 
+### TypeScript
+
 ```ts
 import { rasmifize } from 'rasmifize';
 
 const arabicString: string = 'الفَاتِحَة';
+
+rasmifize(arabicString); // الڡاٮحه
+```
+
+### JavaScript
+
+```js
+const rasmifize = require('rasmifize');
+
+const arabicString = 'الفَاتِحَة';
 
 rasmifize(arabicString); // الڡاٮحه
 ```
