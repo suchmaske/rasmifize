@@ -23,6 +23,10 @@ Since I want to maintain this *rasm* library, I have decided to publish a succes
 npm install rasmifize
 ```
 
+## Try it
+
+You can test it here: [rasmifize demo](https://suchmaske.github.io/rasmifize/demo/)
+
 ## How to use
 
 ### TypeScript
