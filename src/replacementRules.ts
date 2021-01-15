@@ -83,7 +83,7 @@ export const replacementRules: ReplacementRule[] = [
    { original: /\u0624/g, replacement: "\u0648" },
 
    // Replace arabic letter yeh (\u0626) at the end of a word with arabic letter alef maksura (\u0649)
-   { original: /\u0626$/, replacement: "\u0649" },
+   { original: /\u0626(?=\s|$)/, replacement: "\u0649" },
 
    // Replace arabic letter yeh with hamza above (\u0626) with arabic letter dotless beh (\u066E)
    { original: /\u0626/g, replacement: "\u066E" },

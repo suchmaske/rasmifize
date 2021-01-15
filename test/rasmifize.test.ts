@@ -48,10 +48,16 @@ describe('#rasmifize', () => {
 
 describe('regression test', () => {
   it('should convert reported errors correctly', () => {
-      const dataProvider = [{
+      const dataProvider = [
+        {
           input: 'وَهَيِّئۡ',
           expectation: 'وهىى'
-      }];
+        },
+        {
+          input: 'بِإِذۡنِیۖ وَتُبۡرِئُ ٱلۡأَكۡمَهَ',
+          expectation: 'ٮادںى وٮٮرى الاکمه'
+        }
+      ];
 
       dataProvider.forEach(testData => {
           assert.equal(rasmifize(testData.input), testData.expectation);
