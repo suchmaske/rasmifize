@@ -1,5 +1,8 @@
 {
+  "scripts": {
+    "build": "webpack index.js demo.js"
+  },
   "dependencies": {
-    "rasmifize": "^1.0.3"
+    "rasmifize": "^1.0.5"
   }
 }

@@ -1,20 +1,79 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-const rasmifize = require('rasmifize');
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
 
-const originalArabic = document.getElementById('arabic');
-const rasmifizeTarget = document.getElementById('rasmifized');
-const initialValue = "الفَاتِحَة";
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
 
-originalArabic.value = initialValue;
-rasmifizeTarget.textContent = rasmifize(originalArabic.value);
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
 
-originalArabic.addEventListener('input', function (event) {
-  rasmifizeTarget.textContent = rasmifize(event.target.value);
-})
-},{"rasmifize":2}],2:[function(require,module,exports){
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
-var replacementRules_1 = require("./replacementRules");
+var replacementRules_1 = __webpack_require__(1);
 function rasmifize(arabicString) {
     var rasm = arabicString.replace(replacementRules_1.characterRemovalRange, '');
     replacementRules_1.replacementRules.forEach(function (replacementRule) {
@@ -25,8 +84,13 @@ function rasmifize(arabicString) {
 exports.default = rasmifize;
 module.exports = rasmifize;
 
-},{"./replacementRules":3}],3:[function(require,module,exports){
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.replacementRules = exports.characterRemovalRange = void 0;
 /*
@@ -87,7 +151,7 @@ exports.replacementRules = [
     // Replace arabic letter waw with hamza above (\u0624) with arabic letter waw (\u0648)
     { original: /\u0624/g, replacement: "\u0648" },
     // Replace arabic letter yeh (\u0626) at the end of a word with arabic letter alef maksura (\u0649)
-    { original: /\u0626$/, replacement: "\u0649" },
+    { original: /\u0626(?=\s|$)/, replacement: "\u0649" },
     // Replace arabic letter yeh with hamza above (\u0626) with arabic letter dotless beh (\u066E)
     { original: /\u0626/g, replacement: "\u066E" },
     // Replace arabic letter noon (\u0646) with arabic letter noon ghunna (\u06BA)
@@ -98,4 +162,23 @@ exports.replacementRules = [
     { original: /\u0644\u0644\u0647/g, replacement: "\u0644\u0644\u200D\u0647" }
 ];
 
-},{}]},{},[1]);
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const rasmifize = __webpack_require__(0);
+
+const originalArabic = document.getElementById('arabic');
+const rasmifizeTarget = document.getElementById('rasmifized');
+const initialValue = "الفَاتِحَة";
+
+originalArabic.value = initialValue;
+rasmifizeTarget.textContent = rasmifize(originalArabic.value);
+
+originalArabic.addEventListener('input', function (event) {
+  rasmifizeTarget.textContent = rasmifize(event.target.value);
+})
+
+/***/ })
+/******/ ]);
