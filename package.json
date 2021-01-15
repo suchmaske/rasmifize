@@ -1,6 +1,6 @@
 {
   "name": "rasmifize",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Reduce arabic strings to their rasm. Formerly known as rasmify.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
