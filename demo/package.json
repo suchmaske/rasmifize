@@ -3,6 +3,6 @@
     "build": "webpack index.js demo.js"
   },
   "dependencies": {
-    "rasmifize": "^1.0.5"
+    "rasmifize": "^1.0.6"
   }
 }
